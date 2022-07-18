@@ -1223,6 +1223,7 @@ private let falseNumber = NSNumber(value: false)
 private let trueObjCType = String(cString: trueNumber.objCType)
 private let falseObjCType = String(cString: falseNumber.objCType)
 
+#if !os(Linux)
 // MARK: - NSNumber: Comparable
 
 extension NSNumber {
@@ -1283,6 +1284,7 @@ func >= (lhs: NSNumber, rhs: NSNumber) -> Bool {
     default:            return lhs.compare(rhs) != .orderedAscending
     }
 }
+#endif
 
 public enum writingOptionsKeys {
 	case jsonSerialization
