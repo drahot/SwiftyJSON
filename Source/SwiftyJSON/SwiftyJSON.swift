@@ -1223,7 +1223,6 @@ private let falseNumber = NSNumber(value: false)
 private let trueObjCType = String(cString: trueNumber.objCType)
 private let falseObjCType = String(cString: falseNumber.objCType)
 
-#if !os(Linux)
 // MARK: - NSNumber: Comparable
 
 extension NSNumber {
@@ -1236,6 +1235,8 @@ extension NSNumber {
         }
     }
 }
+
+#if !os(Linux)
 
 func == (lhs: NSNumber, rhs: NSNumber) -> Bool {
     switch (lhs.isBool, rhs.isBool) {
